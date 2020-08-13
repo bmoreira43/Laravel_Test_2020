@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-    @include('partials.url')
+    @include('partials.register')
 @stop
