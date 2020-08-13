@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">URL Shortner</a>
+            <a class="navbar-brand" href="/">URL Shortner</a>
          
             <ul class="navbar-nav">
                 <li class="nav-item list-inline-item">
