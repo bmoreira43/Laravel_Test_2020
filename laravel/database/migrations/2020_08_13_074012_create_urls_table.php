@@ -19,6 +19,7 @@ class CreateUrlsTable extends Migration
             $table->string('link');
             $table->string('link_short');
             $table->ipAddress('ip');
+            $table->integer('user_id')->nullable();
         });
     }
 

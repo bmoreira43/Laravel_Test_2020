@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Url;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Auth;
 
 
 class URLController extends Controller
