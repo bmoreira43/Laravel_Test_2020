@@ -20,6 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/generate-shorten-link', 'URLController@index');
+
+Route::get('/apis/generate-shorten-link', 'URLController@apiindex');
+
 Route::post('/generate-shorten-link', 'URLController@store')->name('generate.shorten.link.post');
    
 Route::get('/go/{code}', 'URLController@shortenLink')->name('shorten.link');

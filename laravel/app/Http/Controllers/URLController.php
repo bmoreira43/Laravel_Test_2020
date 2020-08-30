@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Url;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 
 class URLController extends Controller
@@ -17,8 +17,14 @@ class URLController extends Controller
     public function index()
     {
         $shortLinks = Url::latest()->get();
-
         return view('url', compact('shortLinks'));    
+    }
+    public function apiindex()
+    {
+        $shortLinks = Url::latest()->get();
+        return response()->json([$shortLinks]);
+
+        // return view('url', compact('shortLinks'));    
     }
      
     /**
@@ -35,8 +41,15 @@ class URLController extends Controller
         $input['link'] = $request->link;
         $input['link_short'] =  Str::random(6);
         $input['ip'] = $request->ip();
-
-   
+        
+        // check if the user is logged in and store the user id
+        if (Auth::check()) {
+            $input['user_id'] = Auth::id();
+        }else {
+            $input['user_id'] = 0;
+            
+        }
+        
         Url::create($input);
   
         return redirect('generate-shorten-link')
